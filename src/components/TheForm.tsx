@@ -23,7 +23,7 @@ export const TheForm = memo(() => {
         const getDate = new Date();
         const hours = getDate.getHours();
         const minute = getDate.getMinutes();
-        const takeTime: string = `${String(hours)}${String(minute)}`;
+        const takeTime: string = `${String(hours).padStart(2, '0')}${String(minute).padStart(2, '0')}`;
         InputTxtBox.push(takeTime);
 
         localStorage.setItem('InputTxtBox', JSON.stringify(InputTxtBox));
@@ -40,7 +40,7 @@ export const TheForm = memo(() => {
             const getDate = new Date();
             const hours = getDate.getHours();
             const minute = getDate.getMinutes();
-            const takeTime: string = `${String(hours)}${String(minute)}`;
+            const takeTime: string = `${String(hours).padStart(2, '0')}${String(minute).padStart(2, '0')}`;
             const pastTime: number = Number(SaveDateTxt.pop());
             if ((Number(takeTime) - pastTime) >= resetLimit) {
                 localStorage.removeItem('InputTxtBox');
