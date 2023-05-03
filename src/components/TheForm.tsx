@@ -48,7 +48,6 @@ export const TheForm = memo(() => {
                 const InputTxt = document.querySelectorAll('form label input');
                 InputTxt.forEach(inputTxt => {
                     const eachSaveTxt = SaveDateTxt.shift();
-                    // console.log(eachSaveTxt);
                     inputTxt.setAttribute('value', eachSaveTxt);
                 });
             }
