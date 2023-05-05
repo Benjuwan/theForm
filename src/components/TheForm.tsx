@@ -46,9 +46,23 @@ export const TheForm = memo(() => {
                 localStorage.removeItem('InputTxtBox');
             } else {
                 const InputTxt = document.querySelectorAll('form label input');
-                InputTxt.forEach(inputTxt => {
+                InputTxt.forEach((inputTxt, i) => {
                     const eachSaveTxt = SaveDateTxt.shift();
-                    inputTxt.setAttribute('value', eachSaveTxt);
+                    /* vanilla-JS の場合は下記の setAttributeメソッドでok. */
+                    // inputTxt.setAttribute('value', eachSaveTxt);
+
+                    /* React は State で管理するため下記処理（各項目に合致する value を反映） */
+                    if (i === 0) {
+                        setName(eachSaveTxt);
+                    } else if (i === 1) {
+                        setMail(eachSaveTxt);
+                    } else if (i === 2) {
+                        setTel(eachSaveTxt);
+                    } else if (i === 3) {
+                        setAddressNum(eachSaveTxt);
+                    } else if (i === 4) {
+                        setAddress(eachSaveTxt);
+                    }
                 });
             }
         }
