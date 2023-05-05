@@ -46,12 +46,15 @@ export const TheForm = memo(() => {
                 localStorage.removeItem('InputTxtBox');
             } else {
                 const InputTxt = document.querySelectorAll('form label input');
-                InputTxt.forEach((inputTxt, i) => {
-                    const eachSaveTxt = SaveDateTxt.shift();
-                    /* vanilla-JS の場合は下記の setAttributeメソッドでok. */
-                    // inputTxt.setAttribute('value', eachSaveTxt);
+                /* vanilla-JS の場合は下記の setAttributeメソッドでok. */
+                // InputTxt.forEach((inputTxt, i) => {
+                //     const eachSaveTxt = SaveDateTxt.shift();
+                //     inputTxt.setAttribute('value', eachSaveTxt);
+                // });
 
-                    /* React は State で管理するため下記処理（各項目に合致する value を反映） */
+                /* React の場合は State で管理するため下記処理（各項目に合致する value を反映） */
+                for (let i = 0; i < InputTxt.length; i++) {
+                    const eachSaveTxt = SaveDateTxt.shift();
                     if (i === 0) {
                         setName(eachSaveTxt);
                     } else if (i === 1) {
@@ -63,7 +66,7 @@ export const TheForm = memo(() => {
                     } else if (i === 4) {
                         setAddress(eachSaveTxt);
                     }
-                });
+                }
             }
         }
     }, []);
