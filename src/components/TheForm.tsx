@@ -345,7 +345,7 @@ margin: 5em auto;
         color: #fff;
         line-height: 1.8;
         padding: 1em .25em;
-        marign: 0;
+        margin: 0;
         width: 50%;
         font-size: 1.4rem;
 
